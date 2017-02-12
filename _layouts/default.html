@@ -7,23 +7,23 @@
 
     {% include header.html %}
 
-    <div class="container-fluid">
-      {% if page.url == "/index.html" %}
-        {% for post in site.posts limit:1 %}
-        <div class="jumbotron">
+    {% if page.url == "/index.html" %}
+    <div class="container-fluid no-padding">
+      {% for post in site.posts limit:1 %}
+      <div style="background-image:url({{ post.header_photo }});background-size:cover;background-repeat:no-repeat;background-position:center center;">
+        <div class="jumbotron first-post-jumbotron">
           <h1>{{ post.title }}</h1>
           <p>
             {{ post.excerpt }}
           </p>
           <p><a class="btn btn-primary btn-lg" href="{{ post.url }}">Learn more</a></p>
         </div>
-        {% endfor %}
-      {% endif %}
+      </div>
+      {% endfor %}
     </div>
+    {% endif %}
 
-    <div class="container" aria-label="Content">
-        {{ content }}
-    </div>
+    {{ content }}
 
     {% include footer.html %}
     <script id="dsq-count-scr" src="//usareports.disqus.com/count.js" async></script>
