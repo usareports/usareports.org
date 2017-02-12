@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Example Fact Post"
-date:   2017-02-11
+title:  "Example Fact Post 3"
+date:   2017-02-03
 author:
   name: "Authors name"
   email: "Authors email"

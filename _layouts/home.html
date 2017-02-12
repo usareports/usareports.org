@@ -1,40 +1,42 @@
 ---
 layout: default
 ---
+
 <div class="row">
   <div class="col-md-2">
 
   </div>
   <div class="col-md-8">
-
     <!-- This loops through the paginated posts -->
-    {% for post in paginator.posts %}
+    {% for post in paginator.posts offset:1 %}
       {% if post.category == 'fact' %}
         <div class="panel panel-success">
         {% else if post.category == 'opinion' %}
         <div class="panel panel-info">
       {% endif %}
-          <div class="panel-heading">
-            <h3 class="panel-title  text-uppercase">
-              {{ post.category }}
-            </h3>
-          </div>
-          <div class="panel-body">
-            <h3>
-              <a  href="{{ post.url }}">{{ post.title }}</a>
-            </h3>
-            <h4>
-              <small>
-                {{ post.author.name }} | {{ post.date  | date_to_string }} |
-                <span class="disqus-comment-count" data-disqus-identifier="{{ post.id }}">no comments</span>
-              </small>
-            </h4>
-            <hr />
-            <p>
-              {{ post.excerpt | remove: '<p>' | remove: '</p>' }}<a href="{{ post.url }}">read more</a>
-            </p>
-          </div>
+        <div class="panel-heading">
+          <h3 class="panel-title  text-uppercase">
+            {{ post.category }}
+          </h3>
         </div>
+        <div class="panel-body">
+          <h3>
+            <a  href="{{ post.url }}">{{ post.title }}</a>
+          </h3>
+          <h4>
+            <small>
+              {{ post.author.name }} | {{ post.date  | date_to_string }} |
+              <span class="disqus-comment-count" data-disqus-identifier="{{ post.id }}">no comments</span>
+            </small>
+          </h4>
+          <hr />
+          <p>
+            number:<br />
+
+            {{ post.excerpt | remove: '<p>' | remove: '</p>' }}<a href="{{ post.url }}">read more</a>
+          </p>
+        </div>
+      </div>
     {% endfor %}
 
     <!-- Pagination links -->
