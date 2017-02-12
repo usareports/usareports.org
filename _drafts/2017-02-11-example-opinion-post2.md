@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Example Fact Post"
+title:  "Example Opinion Post"
 date:   2017-02-11
 author:
   name: "Authors name"
